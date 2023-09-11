@@ -9,7 +9,12 @@
 <p>
   <%= content %>
 </p>
-      
+
+<form action="/posts/<%= id %>" method="post">
+  <button id="btn-delete">Delete</button>
+</form>
+
+  
 </div>
 
 <%- include("partials/footer.ejs") %>
