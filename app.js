@@ -66,8 +66,18 @@ app.get("/posts/:postId", async (req, res) => {
 
   res.render("post.ejs", { 
     title: idStorage.title,
-    content: idStorage.content
+    content: idStorage.content,
+    id: idStorage.id
   });
+});
+
+
+app.post("/posts/:postId", async (req, res) => {
+  const requestedPostId = req.params.postId;
+
+  await Post.findByIdAndDelete({ _id: requestedPostId });
+
+  res.redirect("/");
 });
 
 
