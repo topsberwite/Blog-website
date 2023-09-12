@@ -1,11 +1,12 @@
 import express from "express";
 import _ from "lodash";
 import mongoose from "mongoose";
+import "dotenv/config";
 
 const app = express();
 const port = 3000;
 
-await mongoose.connect("mongodb://127.0.0.1:27017/blogDB", { useNewUrlParser: true })
+await mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true })
 
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
